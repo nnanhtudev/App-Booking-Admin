@@ -1,0 +1,83 @@
+@import '../variable';
+
+.info-board-container {
+  display: flex;
+  justify-content: space-around;
+
+  .item {
+    display: flex;
+    width: 20%;
+    height: 6em;
+    border-radius: 10px 10px 20px 10px;
+    box-shadow: -2px 1px 9px #229;
+    margin: 10px;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-end;
+    .item-row {
+      padding: 0;
+
+      .title {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #000000;
+      }
+
+      .current {
+        padding: 5px;
+        color: rgb(31, 44, 1);
+        font-weight: 600;
+      }
+    }
+
+    .item-row-icon {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      width: 25px;
+      height: 25px;
+      border-radius: 25%;
+      background-color: red;
+      margin-top: 60px;
+
+      .i-user,
+      .i-cart,
+      .i-dollar,
+      .i-wallet {
+        position: absolute;
+        top: 5px;
+        margin-bottom: 10px;
+      }
+
+      .i-user {
+        color: $border-color;
+      }
+
+      .i-cart {
+        color: rgb(114, 95, 8);
+      }
+
+      .i-dollar {
+        color: green;
+      }
+
+      .i-wallet {
+        color: rgb(17, 207, 175);
+      }
+    }
+
+    .icon-cart {
+      background-color: rgb(231, 205, 89);
+    }
+
+    .icon-dollar {
+      background-color: greenyellow;
+    }
+
+    .icon-wallet {
+      background-color: rgb(119, 71, 126);
+    }
+  }
+}

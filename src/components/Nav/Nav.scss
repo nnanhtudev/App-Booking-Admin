@@ -1,0 +1,14 @@
+@import '../variable';
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid $border-color;
+  border-right: 2px solid $border-color;
+  color: $color-bg-theme;
+  font-family: 'Courier New', Courier, monospace;
+  h1{
+    font-weight: 600;
+  }
+}
