@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import './Sidebar.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBox, faHotel, faRightFromBracket, faTableColumns, faTruck, faUser } from "@fortawesome/free-solid-svg-icons"
@@ -12,7 +12,7 @@ const SideBar = () => {
             <ul>
               <li>
                 <FontAwesomeIcon icon={faBox} />
-                <NavLink className="title-list-item">Dashboard</NavLink>
+                <Link to='/' className="title-list-item">Dashboard</Link>
               </li>
             </ul>
           </div>
@@ -21,19 +21,19 @@ const SideBar = () => {
             <ul>
               <li>
                 <FontAwesomeIcon icon={faUser} />
-                <NavLink className="title-list-item">User</NavLink>
+                <Link className="title-list-item">User</Link>
               </li>
               <li>
                 <FontAwesomeIcon icon={faHotel} />
-                <NavLink className="title-list-item">Hotels</NavLink>
+                <Link to='/hotels' className="title-list-item">Hotels</Link>
               </li>
               <li>
                 <FontAwesomeIcon icon={faTableColumns} />
-                <NavLink className="title-list-item">Rooms</NavLink>
+                <Link to='/rooms' className="title-list-item">Rooms</Link>
               </li>
               <li>
                 <FontAwesomeIcon icon={faTruck} />
-                <NavLink className="title-list-item">Transactions</NavLink>
+                <Link to='/transactions' className="title-list-item">Transactions</Link>
               </li>
             </ul>
           </div>
@@ -42,11 +42,11 @@ const SideBar = () => {
             <ul>
               <li>
                 <FontAwesomeIcon icon={faHotel} />
-                <NavLink className="title-list-item">New Hotel</NavLink>
+                <Link to='/new-hotel' className="title-list-item">New Hotel</Link>
               </li>
               <li>
                 <FontAwesomeIcon icon={faTableColumns} />
-                <NavLink className="title-list-item">New Room</NavLink>
+                <Link to='/new-rooms' className="title-list-item">New Room</Link>
               </li>
             </ul>
           </div>
@@ -55,7 +55,7 @@ const SideBar = () => {
             <ul>
               <li>
                 <FontAwesomeIcon icon={faRightFromBracket} />
-                <NavLink className="title-list-item">Logout</NavLink>
+                <Link className="title-list-item">Logout</Link>
               </li>
             </ul>
           </div>

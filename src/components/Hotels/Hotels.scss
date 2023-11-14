@@ -1,0 +1,23 @@
+@import '../variable';
+
+.container-hotels {
+  display: flex;
+  justify-content: space-around;
+
+  .hotels {
+    margin-left: 1.5rem;
+    border: 2px solid #efeeee;
+
+    .hotels-body {
+      padding: 30px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .title {
+        text-shadow: 1px 1px 2px rgba(254, 254, 254, 0.5);
+      }
+    }
+  .btn-outline-danger{
+    border: dashed
+  }
+  }
+}

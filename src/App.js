@@ -3,7 +3,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from "./components/Nav/Nav";
 import SideBar from "./components/Sidebar/Sidebar";
-import InfoBoard from "./components/InfoBoard/InfoBoard";
+import AppRoutes from "./routes/AppRoutes";
+
 const App = () => {
   return (
     <>
@@ -16,7 +17,7 @@ const App = () => {
             <SideBar />
           </div>
           <div className="app-info-board col-10">
-            <InfoBoard />
+            <AppRoutes />
           </div>
         </div>
       </Router>

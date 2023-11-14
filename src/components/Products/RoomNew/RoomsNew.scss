@@ -1,0 +1,44 @@
+@import '../../variable';
+
+.container-rooms-new {
+  display: flex;
+  justify-content: space-around;
+
+  .rooms-new {
+    margin-left: 1.5rem;
+    border: 2px solid #efeeee;
+    border-radius: 10px 10px 20px 10px;
+    box-shadow: 1px 1px 4px rgb(185, 192, 194);
+    .rooms-new-body {
+      display: flex;
+      padding: 20px;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      .title {
+        box-shadow: 1px 1px 4px rgb(185, 192, 194);
+        font-size: 25px;
+        color: #ccc;
+        text-decoration: none;
+      }
+
+      .rooms-new-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: baseline;
+        box-shadow: 1px 1px 4px rgb(185, 192, 194);
+      }
+
+      .btn-send {
+        background-color: #008080;
+        color: #fff;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        width: 100px;
+        height: 50px;
+      }
+    }
+  }
+}

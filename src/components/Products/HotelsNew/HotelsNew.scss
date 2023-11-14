@@ -1,0 +1,39 @@
+@import '../../variable';
+
+.container-hotels-new {
+  display: flex;
+  justify-content: space-around;
+
+  .hotels-new {
+    margin-left: 1.5rem;
+    border: 2px solid #efeeee;
+    border-radius: 10px 10px 20px 10px;
+    box-shadow: 1px 1px 4px rgb(185, 192, 194);
+    .hotels-new-body {
+      display: flex;
+      padding: 20px;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      .title {
+        box-shadow: 1px 1px 4px rgb(185, 192, 194);
+        font-size: 25px;
+        color: #ccc;
+        text-decoration: none;
+      }
+
+      .hotels-new-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: baseline;
+        box-shadow: 1px 1px 4px rgb(185, 192, 194);
+      }
+
+      .btn-send {
+        background-color: #008080;
+        color: #fff;
+      }
+    }
+  }
+}
