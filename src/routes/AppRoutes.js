@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Hotels from '../components/Hotels/Hotels';
 import InfoBoard from '../components/InfoBoard/InfoBoard';

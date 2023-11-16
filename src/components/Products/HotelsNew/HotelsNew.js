@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './HotelsNew.scss';
+import { handleGetAllRoom } from '../../../services/apiRooms';
 
 const HotelsNew = () => {
-
+  const [roomsData, setRoomData] = useState([])
+  useEffect(() => {
+    getRoomData()
+  }, [])
+  const getRoomData = async () => {
+    let roomData = await handleGetAllRoom()
+    if (roomData && roomData.EC === 0) {
+      setRoomData(roomData.DT)
+    }
+  }
   return (
     <>
       <div className="container-hotels-new container row mt-4">
@@ -52,9 +62,13 @@ const HotelsNew = () => {
               <div className='item col-12 mt-4 mb-4'>
                 <label>Room</label>
                 <select class="form-select" multiple aria-label="multiple select example">
-                  <option selected value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  {roomsData && roomsData.length > 0 ?
+                    roomsData.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.title}
+                      </option>
+                    )) : <option value="featured">Featured</option>
+                  }
                 </select>
               </div>
             </div>

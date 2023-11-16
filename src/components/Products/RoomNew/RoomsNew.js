@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './RoomsNew.scss';
+import { handleGetAllHotel } from '../../../services/apiHotels';
 
-const RoomsNew = () => {
-
+const RoomsNew = (props) => {
+  const [dataHotels, setDataHotel] = useState([])
+  useEffect(() => {
+    getHotels()
+  }, [])
+  const getHotels = async () => {
+    const dataHotel = await handleGetAllHotel()
+    if (dataHotel && dataHotel.EC === 0) {
+      setDataHotel(dataHotel.DT)
+    }
+  }
   return (
     <>
       <div className="container-rooms-new container row mt-4">
@@ -29,19 +39,19 @@ const RoomsNew = () => {
                 <input className='form-control' placeholder='2' />
               </div>
               <div className='item col-4 mb-4'>
-                <label>Room</label>
-                <select class="form-select" multiple aria-label="multiple select example">
-                  <option selected value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
+                <label for="floatingTextarea">Rooms</label>
+                <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
               </div>
               <div className='item col-4 mt-4'>
                 <label>Choose a hotel</label>
                 <select className="form-select" aria-label="Default select example">
-                  <option selected>Featured</option>
-                  <option value="1">Yes</option>
-                  <option value="2">No</option>
+                  {dataHotels && dataHotels.length > 0 ?
+                    dataHotels.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    )) : <option value="featured">Featured</option>
+                  }
                 </select>
               </div>
               <button className='btn btn-send col-3 mt-4'>Send</button>
