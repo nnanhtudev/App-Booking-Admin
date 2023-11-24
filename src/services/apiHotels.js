@@ -1,7 +1,11 @@
-import axios from "axios"
+import axios from "../config/axios";
 
 const handleGetAllHotel = async () => {
-  return axios.get('/v1/hotel/read')
-}
+  return axios.get("/v1/hotel/read");
+};
 
-export { handleGetAllHotel }
+const handleCreateNewHotel = (data) => {
+  return axios.post("/v1/hotel/create", data);
+};
+
+export { handleGetAllHotel, handleCreateNewHotel };

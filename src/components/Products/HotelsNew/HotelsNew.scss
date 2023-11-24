@@ -1,4 +1,4 @@
-@import '../../variable';
+@import "../../variable";
 
 .container-hotels-new {
   display: flex;
@@ -9,6 +9,7 @@
     border: 2px solid #efeeee;
     border-radius: 10px 10px 20px 10px;
     box-shadow: 1px 1px 4px rgb(185, 192, 194);
+
     .hotels-new-body {
       display: flex;
       padding: 20px;
@@ -25,9 +26,36 @@
       .hotels-new-content {
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row;
-        align-items: baseline;
+        align-items: flex-end;
         box-shadow: 1px 1px 4px rgb(185, 192, 194);
+        align-content: space-around;
+        justify-content: flex-start;
+        .form-control.is-invalid {
+          animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+          10%,
+          90% {
+            transform: translateX(-5px);
+          }
+
+          20%,
+          80% {
+            transform: translateX(5px);
+          }
+
+          30%,
+          50%,
+          70% {
+            transform: translateX(-5px);
+          }
+
+          40%,
+          60% {
+            transform: translateX(5px);
+          }
+        }
       }
 
       .btn-send {

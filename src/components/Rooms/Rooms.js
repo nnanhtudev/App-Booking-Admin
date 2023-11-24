@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import './Rooms.scss';
-import { handleGetAllRoomPaginate } from '../../services/apiRooms';
+import React, { useEffect, useState } from "react";
+import "./Rooms.scss";
+import { handleGetAllRoomPaginate } from "../../services/apiRooms";
 import ReactPaginate from "react-paginate";
 
 const Rooms = () => {
@@ -16,38 +16,34 @@ const Rooms = () => {
   };
 
   useEffect(() => {
-    handleRoomData()
-  }, [currentPage])
+    handleRoomData();
+  }, []);
 
   const handleRoomData = async () => {
-    let response = await handleGetAllRoomPaginate(currentPage, currentLimit)
+    let response = await handleGetAllRoomPaginate(currentPage, currentLimit);
     if (response && response.EC === 0) {
-      setTotalPages(response.DT && response.DT.totalPages)
-      setRoomData(response.DT && response.DT.rooms)
+      setTotalPages(response.DT && response.DT.totalPages);
+      setRoomData(response.DT && response.DT.rooms);
     }
-  }
+  };
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
-    setCurrentPage(+event.selected + 1)
+    setCurrentPage(+event.selected + 1);
   };
 
   return (
     <>
       <div className="container-rooms container row mt-4">
-        <div className='rooms col-12 form-control'>
-          <div className='rooms-body d-flex'>
-            <button className='btn btn-outline-success'>Add New</button>
-            <h3 className='title'>Rooms List</h3>
+        <div className="rooms col-12 form-control">
+          <div className="rooms-body d-flex">
+            <button className="btn btn-outline-success">Add New</button>
+            <h3 className="title">Rooms List</h3>
             <table className="table table-hover table-bordered mt-2">
               <thead>
                 <tr>
                   <th scope="col">
-                    <input
-                      type="checkbox"
-                      checked={selectAll}
-                      onChange={handleSelectAll}
-                    />
+                    <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
                   </th>
                   <th scope="col">ID</th>
                   <th scope="col">Title</th>
@@ -58,25 +54,31 @@ const Rooms = () => {
                 </tr>
               </thead>
               <tbody>
-                {roomData && roomData.length > 0 ? roomData.map((item) => (
+                {roomData && roomData.length > 0 ? (
+                  roomData.map((item) => (
+                    <tr>
+                      <td>
+                        <input type="checkbox" checked={selectAll} />
+                      </td>
+                      <td>{item._id}</td>
+                      <td>{item.title}</td>
+                      <td>{item.desc}</td>
+                      <td>{item.price}</td>
+                      <td>{item.maxPeople}</td>
+                      <td>
+                        <button className="btn btn-outline-danger">Delete</button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
                   <tr>
-                    <td>
-                      <input type="checkbox" checked={selectAll} />
-                    </td>
-                    <td>{item._id}</td>
-                    <td>{item.title}</td>
-                    <td>{item.desc}</td>
-                    <td>{item.price}</td>
-                    <td>{item.maxPeople}</td>
-                    <td>
-                      <button className='btn btn-outline-danger'>Delete</button>
-                    </td>
+                    <td>Hotels not Found</td>
                   </tr>
-                )) : <tr><td>Hotels not Found</td></tr>}
+                )}
                 {/* Add more table rows here */}
               </tbody>
             </table>
-            {totalPages > 0 &&
+            {totalPages > 0 && (
               <div className="room-footer">
                 <ReactPaginate
                   nextLabel="Next >"
@@ -99,7 +101,7 @@ const Rooms = () => {
                   renderOnZeroPageCount={null}
                 />
               </div>
-            }
+            )}
           </div>
         </div>
       </div>

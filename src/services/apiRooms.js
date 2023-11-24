@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "../config/axios"
 
 const handleGetAllRoom = async () => {
   return axios.get(`/v1/room/read`)
